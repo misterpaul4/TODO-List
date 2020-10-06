@@ -73,7 +73,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Zack\'s Kitchen',
+      title: 'Todo List',
     }),
     new CleanWebpackPlugin({
       cleanStaleWebpackAssets: false,
