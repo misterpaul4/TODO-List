@@ -39,13 +39,17 @@ header .logo {
   display: block;
 }
 
-.search-input input,
-.search-input input::placeholder {
+.search-input input {
   background-color: transparent;
-  color: white;
   border: none;
   outline: none;
   border-bottom: 1px solid white;
   width: 400px;
   margin-left: 10px;
+  padding: 3px 0;
+}
+
+.search-input input,
+.search-input input::placeholder {
+  color: white;
 }
