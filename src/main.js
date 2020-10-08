@@ -1,3 +1,4 @@
+import './main.scss';
 import Project from './utils/project'
 import ProjectDom from './DOM/project'
 import header from './components/header/header'
