@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
 header {
   background-color: rgb(255, 60, 0);
   width: 100%;
@@ -20,8 +24,7 @@ header .logo {
   background-image: url(./images/icons/check.png);
 }
 
-.bg-icon,
-.action-plus {
+.bg-icon {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -44,40 +47,6 @@ header .logo {
   display: flex;
   height: calc(100vh - 35px);
   border: 1px solid red;
-}
-
-.action-panel {
-  background: #edf2ef;
-  width: 25%;
-  font-weight: bold;
-  padding: 20px;
-}
-
-.project-header {
-  border-bottom: 1px solid lightgray;
-  padding-bottom: 10px;
-}
-
-.action-plus {
-  width: 20px;
-  height: 20px;
-  background-image: url(./images/icons/action-plus.png);
-}
-
-.notice {
-  background-image: url(./images/icons/bell.png);
-  position: relative;
-  margin: 0 15px;
-}
-
-.notification {
-  position: absolute;
-  top: 0;
-  right: -2px;
-  width: 8px;
-  height: 8px;
-  background: orange;
-  border-radius: 100%;
 }
 
 .settings {
@@ -113,4 +82,153 @@ header .logo {
 .search-input input,
 .search-input input::placeholder {
   color: white;
+}
+
+/* side bar */
+
+.action-panel {
+  background: #edf2ef;
+  width: 260px;
+  padding: 20px;
+}
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid lightgray;
+  padding-bottom: 10px;
+}
+
+.project-header .project-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 80px;
+}
+
+.action-plus {
+  width: 15px;
+  height: 15px;
+  background-image: url(./images/icons/action-plus.png);
+}
+
+.arrow {
+  width: 10px;
+  height: 10px;
+  background-image: url(./images/icons/arrow-down-angle.png);
+}
+
+.notice {
+  background-image: url(./images/icons/bell.png);
+  position: relative;
+  margin: 0 15px;
+}
+
+.notification {
+  position: absolute;
+  top: 0;
+  right: -2px;
+  width: 8px;
+  height: 8px;
+  background: orange;
+  border-radius: 100%;
+}
+
+.projects {
+  margin-top: 20px;
+}
+
+.project {
+  display: flex;
+  align-items: baseline;
+  padding: 10px 0;
+}
+
+.project .icon {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.project .icon.red {
+  background-color: red;
+}
+
+.project .icon.orange {
+  background-color: orange;
+}
+
+.project .icon.black {
+  background-color: black;
+}
+
+.project .icon.blue {
+  background-color: rgb(0, 119, 255);
+}
+
+.project .title {
+  margin: 0 5px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.project .title.selected {
+  font-weight: bold;
+}
+
+.project .title:hover {
+  text-decoration: underline;
+}
+
+.project .number-of-todos {
+  color: grey;
+  font-size: 12px;
+}
+
+/* this is the project details section */
+
+.project-details {
+  padding: 30px;
+  width: calc(100vw - 260px);
+}
+
+.project-details .project-title {
+  font-weight: bold;
+  font-size: 30px;
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 30px;
+}
+
+.project-details .project-title .project-icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.project-details .project-title .project-icon.red {
+  background-color: red;
+}
+
+.project-details .project-title .project-icon.orange {
+  background-color: orange;
+}
+
+.project-details .project-title .project-icon.black {
+  background-color: black;
+}
+
+.project-details .project-title .project-icon.blue {
+  background-color: rgb(0, 119, 255);
+}
+
+.project-details .project-description {
+  background-color: rgba(197, 197, 197, 0.198);
+  padding: 20px;
+  border-radius: 10px;
+  width: 700px;
+  text-align: justify;
+  margin: 0 auto;
 }
