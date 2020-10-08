@@ -193,6 +193,11 @@ header .logo {
   width: calc(100vw - 260px);
 }
 
+.project-details .project-body {
+  width: 700px;
+  margin: 0 auto;
+}
+
 .project-details .project-title {
   font-weight: bold;
   font-size: 30px;
@@ -231,4 +236,43 @@ header .logo {
   width: 700px;
   text-align: justify;
   margin: 0 auto;
+}
+
+.todos {
+  margin-top: 20px;
+}
+
+button:hover {
+  text-decoration: none !important;
+}
+
+.todo-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.due-date {
+  font-size: 1rem;
+  margin-right: 0;
+}
+
+.todo-priority-duedate {
+  display: flex;
+  justify-content: space-between;
+}
+
+.more-icon,
+.date-icon {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+}
+
+.date-icon {
+  background-image: url(./images/icons/date.png);
+}
+
+.more-icon {
+  background-image: url(./images/icons/more.png);
 }

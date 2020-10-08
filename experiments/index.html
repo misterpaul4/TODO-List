@@ -4,6 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap" rel="stylesheet">
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <!--font awesome -->
+  <script src="https://kit.fontawesome.com/6e72a312b2.js" crossorigin="anonymous"></script>
+  <!-- css -->
   <link rel="stylesheet" href="style.css">
   <title>Todo List</title>
 </head>
@@ -64,15 +69,50 @@
     </nav>
 
     <section class="project-details">
-      <div class="project-title"><span class="project-icon red"></span> Default</div>
-      <div class="project-description">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla 
-        assumenda adipisci, tenetur quis, odio ipsum ipsa temporibus 
-        eligendi voluptate neque, pariatur cumque rerum vel dolorum. 
-        Ratione error laboriosam culpa. Architecto?
+      <div class="project-body">
+        <div class="project-title"><span class="project-icon red"></span> Default</div>
+        <div class="project-description">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla 
+          assumenda adipisci, tenetur quis, odio ipsum ipsa temporibus 
+          eligendi voluptate neque, pariatur cumque rerum vel dolorum. 
+          Ratione error laboriosam culpa. Architecto?
+        </div>
+        <div class="todos">
+          <div class="accordion" id="accordionExample">
+            <div class="card">
+              <div class="card-header" id="headingOne">
+                <h2 class="mb-0 todo-header">
+                  <div>
+                    <input type="checkbox" name="todo-checkbox">
+                    <span class="due-date">Call Nora</span>
+                  </div>
+                  <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    <span class="more-icon bg-icon"></span>
+                  </button>                
+                </h2>
+              </div>
+
+              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body">
+                  <div class="todo-description">
+                    fcjkbsdkjbk djaksdk wesdfs sdf sdf sdf sdf sdf sdf
+                  </div>
+
+                  <div class="todo-priority-duedate">
+                    <span class="todo-priority">! High</span>
+                    <div class="d-flex align-item-center"><span class="date-icon bg-icon mr-1"></span><span class="due-date-input">67-dec</span></div>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
       </div>
-      <div class="todos"></div>
     </section>
   </main>
+
+  <!-- JS, Popper.js, and jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 </body>
 </html>
