@@ -1,0 +1,91 @@
+.panel {
+  display: flex;
+  height: calc(100vh - 35px);
+}
+
+.action-panel {
+  background: #edf2ef;
+  width: 260px;
+  padding: 20px;
+}
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid lightgray;
+  padding-bottom: 10px;
+}
+
+.project-header .project-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 80px;
+}
+
+.action-plus {
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+  background-image: url(./images/action-plus.png);
+}
+
+.arrow {
+  width: 10px;
+  height: 10px;
+  background-image: url(./images/arrow-down-angle.png);
+}
+
+// these should go to the projects component
+
+.projects {
+  margin-top: 20px;
+}
+
+.project {
+  display: flex;
+  align-items: baseline;
+  padding: 10px 0;
+}
+
+.project .icon {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.project .icon.red {
+  background-color: red;
+}
+
+.project .icon.orange {
+  background-color: orange;
+}
+
+.project .icon.black {
+  background-color: black;
+}
+
+.project .icon.blue {
+  background-color: rgb(0, 119, 255);
+}
+
+.project .title {
+  margin: 0 5px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.project .title.selected {
+  font-weight: bold;
+}
+
+.project .title:hover {
+  text-decoration: underline;
+}
+
+.project .number-of-todos {
+  color: grey;
+  font-size: 12px;
+}

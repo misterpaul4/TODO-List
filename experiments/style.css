@@ -43,11 +43,6 @@ header .logo {
   background-image: url(./images/icons/plus.png);
 }
 
-.panel {
-  display: flex;
-  height: calc(100vh - 35px);
-}
-
 .settings {
   background-image: url(./images/icons/settings.png);
 }
@@ -84,6 +79,11 @@ header .logo {
 }
 
 /* side bar */
+
+.panel {
+  display: flex;
+  height: calc(100vh - 35px);
+}
 
 .action-panel {
   background: #edf2ef;
