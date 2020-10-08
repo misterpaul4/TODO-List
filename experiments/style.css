@@ -46,7 +46,6 @@ header .logo {
 .panel {
   display: flex;
   height: calc(100vh - 35px);
-  border: 1px solid red;
 }
 
 .settings {
@@ -192,6 +191,7 @@ header .logo {
 .project-details {
   padding: 30px;
   width: calc(100vw - 260px);
+  overflow-y: scroll;
 }
 
 .project-details .project-body {
