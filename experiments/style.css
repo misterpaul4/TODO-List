@@ -110,6 +110,7 @@ header .logo {
 .action-plus {
   width: 15px;
   height: 15px;
+  cursor: pointer;
   background-image: url(./images/icons/action-plus.png);
 }
 
@@ -275,4 +276,9 @@ button:hover {
 
 .more-icon {
   background-image: url(./images/icons/more.png);
+}
+
+.btn.focus,
+.btn:focus {
+  box-shadow: inset 0 -1px 0 #ddd;
 }
