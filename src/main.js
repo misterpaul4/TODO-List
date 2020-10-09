@@ -17,9 +17,5 @@ const grocery = new Project('grocery', 'grocery list', 'green');
 projects.push(defaultProject);
 projects.push(grocery);
 
-function removeProject(index) {
-	projects = projects.slice(0, index).concat(projects.slice(index + 1));
-}
-
 renderHeader();
 renderSideBar(projects);

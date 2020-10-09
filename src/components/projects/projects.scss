@@ -56,3 +56,19 @@
   color: grey;
   font-size: 12px;
 }
+
+.project-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.project-container .remove-btn {
+  background-image: url(./images/trash.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 13px;
+  height: 13px;
+  cursor: pointer;
+}
