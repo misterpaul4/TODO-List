@@ -14,18 +14,21 @@ function renderForm(projects) {
   const descriptionLabel = document.createElement('label');
   const descriptionInput = document.createElement('textarea');
   const submitBtn = document.createElement('button');
+  const closeBtn = document.createElement('span');
 
   formContainer.id = 'project-form';
   titleInput.id = 'title';
   descriptionInput.id = 'description';
   submitBtn.id = 'project-submit';
 
-  formContainer.className = 'form-container';
+  formContainer.classList.add('form-container');
+  form.classList.add('position-relative');
   titleContainer.className = 'form-group';
   titleInput.className = 'form-control';
   descriptionContainer.className = 'form-group';
   descriptionInput.className = 'form-control';
   submitBtn.classList.add('btn', 'btn-primary');
+  closeBtn.className = 'close-btn';
 
   titleLabel.setAttribute('for', 'title');
   titleInput.setAttribute('type', 'text');
@@ -42,6 +45,7 @@ function renderForm(projects) {
   header.textContent = 'New Project';
 
   formContainer.appendChild(form);
+  form.appendChild(closeBtn);
   form.appendChild(header);
   form.appendChild(titleContainer);
   titleContainer.appendChild(titleLabel);
@@ -51,6 +55,10 @@ function renderForm(projects) {
   descriptionContainer.appendChild(descriptionInput);
   form.appendChild(submitBtn);
   document.body.appendChild(formContainer);
+
+  closeBtn.addEventListener('click', () => {
+    formContainer.remove();
+  });
 }
 
 export default function render(projects) {
