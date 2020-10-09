@@ -1,0 +1,58 @@
+.projects {
+  margin-top: 20px;
+}
+
+.project {
+  display: flex;
+  align-items: baseline;
+  padding: 10px 0;
+}
+
+.project .icon {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.project .icon.red {
+  background-color: red;
+}
+
+.project .icon.orange {
+  background-color: orange;
+}
+
+.project .icon.black {
+  background-color: black;
+}
+
+.project .icon.blue {
+  background-color: rgb(0, 119, 255);
+}
+
+.project .icon.green {
+  background-color: rgb(0, 172, 0);
+}
+
+.project .icon.purple {
+  background-color: rgb(170, 0, 170);
+}
+
+.project .title {
+  margin: 0 5px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.project .title.selected {
+  font-weight: bold;
+}
+
+.project .title:hover {
+  text-decoration: underline;
+}
+
+.project .number-of-todos {
+  color: grey;
+  font-size: 12px;
+}
