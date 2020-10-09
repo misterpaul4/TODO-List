@@ -46,7 +46,7 @@ export default function renderForm(projects) {
   titleLabel.textContent = 'Title';
   titleWarning.textContent = 'Project title should atleast have 5 characters';
   descriptionLabel.textContent = 'Description';
-  descriptionWarning.textContent = 'Project Description should atleast have 20 characters';
+  descriptionWarning.textContent = 'Project Description should atleast have 5 characters';
   submitBtn.textContent = 'Submit';
   header.textContent = 'New Project';
 
@@ -90,7 +90,7 @@ export default function renderForm(projects) {
     const title = titleInput.value;
     const description = descriptionInput.value;
 
-    if (title.length >= 5 && description.length >= 20) {
+    if (title.length >= 5 && description.length >= 5) {
       const newProject = new Project(title, description);
       projects.push(newProject);
       renderProjects(projects);
@@ -104,7 +104,7 @@ export default function renderForm(projects) {
 
         setTimeout(() => {
           titleWarning.style.display = 'none';
-        }, 3000);
+        }, 8000);
       }
 
       if (description.length < 5) {
@@ -112,7 +112,7 @@ export default function renderForm(projects) {
 
         setTimeout(() => {
           descriptionWarning.style.display = 'none';
-        }, 3000);
+        }, 8000);
       }
     }
   });
