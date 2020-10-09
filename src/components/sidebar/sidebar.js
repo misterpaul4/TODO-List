@@ -38,7 +38,6 @@ function renderForm(projects) {
   descriptionInput.setAttribute('rows', '5');
   submitBtn.setAttribute('type', 'submit');
 
-
   titleLabel.textContent = 'Title';
   descriptionLabel.textContent = 'Description';
   submitBtn.textContent = 'Submit';
@@ -56,9 +55,22 @@ function renderForm(projects) {
   form.appendChild(submitBtn);
   document.body.appendChild(formContainer);
 
-  closeBtn.addEventListener('click', () => {
+  function removeForm2(e) {
+    if (e.key === 'Escape') {
+      formContainer.remove();
+    }
+
+    document.removeEventListener('keydown', removeForm2);
+  }
+
+  function removeForm(e) {
     formContainer.remove();
-  });
+    e.target.removeEventListener('click', removeForm);
+    document.removeEventListener('keydown', removeForm2);
+  }
+
+  closeBtn.addEventListener('click', removeForm);
+  document.addEventListener('keydown', removeForm2);
 }
 
 export default function render(projects) {
