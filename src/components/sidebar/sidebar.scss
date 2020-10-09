@@ -7,6 +7,7 @@
   background: #edf2ef;
   width: 260px;
   padding: 20px;
+  overflow-y: scroll;
 }
 
 .project-header {
@@ -37,55 +38,20 @@
   background-image: url(./images/arrow-down-angle.png);
 }
 
-// these should go to the projects component
-
-.projects {
-  margin-top: 20px;
-}
-
-.project {
+.form-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(128, 128, 128, 0.205);
   display: flex;
-  align-items: baseline;
-  padding: 10px 0;
+  justify-content: center;
+  align-items: center;
 }
 
-.project .icon {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-}
-
-.project .icon.red {
-  background-color: red;
-}
-
-.project .icon.orange {
-  background-color: orange;
-}
-
-.project .icon.black {
-  background-color: black;
-}
-
-.project .icon.blue {
-  background-color: rgb(0, 119, 255);
-}
-
-.project .title {
-  margin: 0 5px;
-  font-size: 15px;
-  cursor: pointer;
-}
-
-.project .title.selected {
-  font-weight: bold;
-}
-
-.project .title:hover {
-  text-decoration: underline;
-}
-
-.project .number-of-todos {
-  color: grey;
-  font-size: 12px;
+.form-container form {
+  width: 400px;
+  background-color: white;
+  padding: 30px;
 }
