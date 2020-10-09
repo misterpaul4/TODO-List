@@ -4,7 +4,7 @@ import renderHeader from './components/header/header';
 import renderSideBar from './components/sidebar/sidebar';
 import Project from './utils/project';
 
-const projects = [];
+let projects = [];
 
 const defaultProject = new Project(
   'default',
@@ -16,6 +16,10 @@ const grocery = new Project('grocery', 'grocery list', 'green');
 
 projects.push(defaultProject);
 projects.push(grocery);
+
+function removeProject(index) {
+	projects = projects.slice(0, index).concat(projects.slice(index + 1));
+}
 
 renderHeader();
 renderSideBar(projects);
