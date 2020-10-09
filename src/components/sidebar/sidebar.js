@@ -71,6 +71,20 @@ function renderForm(projects) {
 
   closeBtn.addEventListener('click', removeForm);
   document.addEventListener('keydown', removeForm2);
+  submitBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    const title = titleInput.value;
+    const description = descriptionInput.value;
+
+    const newProject = new Project(title, description);
+    projects.push(newProject);
+    renderProjects(projects);
+
+    removeForm(e);
+
+    renderProjects(projects);
+  });
 }
 
 export default function render(projects) {
@@ -106,9 +120,6 @@ export default function render(projects) {
 
   actionPlus.addEventListener('click', () => {
     renderForm(projects);
-    // const newProject = new Project('test', 'description');
-    // projects.push(newProject);
-    // renderProjects(projects);
   });
 
   renderProjects(projects);
