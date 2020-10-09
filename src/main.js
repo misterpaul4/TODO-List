@@ -1,17 +1,21 @@
+import 'bootstrap';
 import './main.scss';
 import renderHeader from './components/header/header';
 import renderSideBar from './components/sidebar/sidebar';
-import renderProject from './components/project/project';
 import Project from './utils/project';
 
-renderHeader();
-renderSideBar();
+const projects = [];
 
-
-// testing
-let projects = []
-const defaultProject = new Project('shopping', 'shopping list');
+const defaultProject = new Project(
+  'default',
+  `Here goes all of your default Todos there is no need to create 
+  a new project but if you need some of more organisation you can 
+  do so`,
+);
 const grocery = new Project('grocery', 'grocery list');
+
 projects.push(defaultProject);
 projects.push(grocery);
-renderProject(projects)
+
+renderHeader();
+renderSideBar(projects);

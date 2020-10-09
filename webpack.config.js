@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const autoprefixer = require('autoprefixer');
 
 module.exports = {
   mode: 'development',
@@ -33,6 +34,7 @@ module.exports = {
           'style-loader',
           'css-loader',
           'resolve-url-loader',
+          'postcss-loader',
           'sass-loader',
         ],
       },
