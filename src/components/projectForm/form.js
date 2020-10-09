@@ -13,6 +13,9 @@ export default function renderForm(projects) {
   const descriptionLabel = document.createElement('label');
   const descriptionInput = document.createElement('textarea');
   const descriptionWarning = document.createElement('small');
+  const colorContainer = document.createElement('div');
+  const colorLabel = document.createElement('label');
+  const colorInput = document.createElement('input');
   const submitBtn = document.createElement('button');
   const closeBtn = document.createElement('span');
 
@@ -20,6 +23,7 @@ export default function renderForm(projects) {
   titleInput.id = 'title';
   descriptionInput.id = 'description';
   submitBtn.id = 'project-submit';
+  colorInput.id = 'project-color';
 
   formContainer.classList.add('form-container');
   form.classList.add('position-relative');
@@ -31,6 +35,8 @@ export default function renderForm(projects) {
   descriptionInput.className = 'form-control form-control-sm';
   descriptionWarning.id = 'descriptionWarning';
   descriptionWarning.className = 'form-text text-danger';
+  colorContainer.className = 'form-group';
+  colorLabel.className = 'mr-2';
   submitBtn.classList.add('btn', 'btn-primary');
   closeBtn.className = 'close-btn';
 
@@ -42,6 +48,11 @@ export default function renderForm(projects) {
   descriptionInput.setAttribute('name', 'description');
   descriptionInput.setAttribute('rows', '5');
   submitBtn.setAttribute('type', 'submit');
+  colorLabel.setAttribute('for', 'project-color');
+  colorInput.setAttribute('type', 'color');
+  colorInput.setAttribute('name', 'project-color');
+  // set default color
+  colorInput.setAttribute('value', '#ff0017');
 
   titleLabel.textContent = 'Title';
   titleWarning.textContent = 'Project title should atleast have 5 characters';
@@ -49,6 +60,7 @@ export default function renderForm(projects) {
   descriptionWarning.textContent = 'Project Description should atleast have 5 characters';
   submitBtn.textContent = 'Submit';
   header.textContent = 'New Project';
+  colorLabel.textContent = 'Color: ';
 
   titleWarning.style.display = 'none';
   descriptionWarning.style.display = 'none';
@@ -64,6 +76,9 @@ export default function renderForm(projects) {
   descriptionContainer.appendChild(descriptionLabel);
   descriptionContainer.appendChild(descriptionInput);
   descriptionContainer.appendChild(descriptionWarning);
+  form.appendChild(colorContainer);
+  colorContainer.appendChild(colorLabel);
+  colorContainer.appendChild(colorInput);
   form.appendChild(submitBtn);
   document.body.appendChild(formContainer);
 
@@ -89,9 +104,10 @@ export default function renderForm(projects) {
 
     const title = titleInput.value;
     const description = descriptionInput.value;
+    const color = colorInput.value;
 
     if (title.length >= 5 && description.length >= 5) {
-      const newProject = new Project(title, description);
+      const newProject = new Project(title, description, color);
       projects.push(newProject);
       renderProjects(projects);
 

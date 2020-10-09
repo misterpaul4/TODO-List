@@ -21,7 +21,7 @@ export default function project(projects) {
     projectTitle.textContent = proj.title;
     projectTodos.textContent = proj.todos.length;
     // TODO: make this property customizable
-    projectColor.style.background = 'red';
+    projectColor.style.background = proj.color;
 
     container.appendChild(projectContainer);
     projectContainer.appendChild(projectColor);
