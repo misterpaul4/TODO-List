@@ -1,7 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const autoprefixer = require('autoprefixer');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 
 module.exports = {
   mode: 'development',
@@ -76,7 +76,9 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Todo List',
+      favicon: './favicon.ico',
     }),
+    new FaviconsWebpackPlugin('./favicon.ico'),
     new CleanWebpackPlugin({
       cleanStaleWebpackAssets: false,
     }),
