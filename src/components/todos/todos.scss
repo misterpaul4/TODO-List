@@ -42,5 +42,29 @@ button:hover {
   justify-content: space-between;
 }
 
-.todo-header:hover {
+.accordion .remove-btn {
+  visibility: hidden;
+  position: absolute;
+  top: 18px;
+  left: -20px;
+  color: white;
+  background: red;
+  border-radius: 100%;
+  width: 13px;
+  height: 13px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 10px;
+  cursor: pointer;
+  transition: visibility 0.2s ease-in;
+}
+
+.accordion .remove-btn:hover {
+  visibility: visible;
+}
+
+.accordion:hover .remove-btn {
+  visibility: visible;
 }

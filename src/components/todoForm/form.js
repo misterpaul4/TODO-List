@@ -1,7 +1,8 @@
 import Todo from '../../utils/todo';
+// eslint-disable-next-line import/no-cycle
 import renderProject from '../project/project';
 
-export default function(project) {
+export default function (project) {
   const { body } = document;
   const formContainer = document.createElement('div');
   const form = document.createElement('form');
@@ -130,6 +131,5 @@ export default function(project) {
     project.addTodo(newTodo);
     removeForm(e);
     renderProject(project);
-
-  })
+  });
 }

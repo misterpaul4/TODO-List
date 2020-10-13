@@ -20,6 +20,7 @@ export default function todos(tdList) {
   let todoDate;
   let dateIcon;
   let dateValue;
+  let removeBtn;
 
   tdList.forEach((td, index) => {
     accordion = document.createElement('div');
@@ -40,12 +41,14 @@ export default function todos(tdList) {
     todoDate = document.createElement('div');
     dateIcon = document.createElement('span');
     dateValue = document.createElement('span');
+    removeBtn = document.createElement('span');
 
     accordion.id = 'accordionExample';
     cardHeader.id = `heading-${index}`; // should be generated
     collapse.id = `collapse-${index}`; // should be generated
 
-    accordion.className = 'accordion pb-2 border-bottom border-grey';
+    accordion.className = 'position-relative accordion pb-2 border-bottom border-grey';
+    removeBtn.className = 'remove-btn';
     card.className = 'card border-0';
     cardHeader.className = 'card-header m-0 p-0 border-0 bg-white';
     header.className = 'mb-0 d-flex align-items-baseline justify-content-between todo-header';
@@ -76,7 +79,9 @@ export default function todos(tdList) {
     todoPriority.textContent = td.priority;
     dateValue.textContent = td.dueDate;
     todoDescription.textContent = td.description;
+    removeBtn.textContent = 'x';
     // test end
+    accordion.appendChild(removeBtn);
     seperator.appendChild(checkbox);
     seperator.appendChild(todoTitle);
     header.appendChild(seperator);
