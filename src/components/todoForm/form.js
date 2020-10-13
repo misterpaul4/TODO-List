@@ -24,8 +24,10 @@ export default function () {
   const descriptionInput = document.createElement('textarea');
 
   const submit = document.createElement('button');
+  const closeBtn = document.createElement('span');
 
   formContainer.className = 'form-container';
+  form.classList.add('position-relative');
   titleGroup.className = 'form-group';
   titleInput.className = 'form-control';
   duedateGroup.className = 'form-group';
@@ -35,6 +37,7 @@ export default function () {
   descriptionGroup.className = 'form-group';
   descriptionInput.className = 'form-control';
   submit.className = 'btn btn-primary';
+  closeBtn.className = 'close-btn';
 
   titleLabel.setAttribute('for', 'title');
   titleInput.setAttribute('type', 'text');
@@ -91,6 +94,24 @@ export default function () {
   form.appendChild(descriptionGroup);
 
   form.appendChild(submit);
+  form.appendChild(closeBtn);
   formContainer.appendChild(form);
   body.appendChild(formContainer);
+
+  function removeForm2(e) {
+    if (e.key === 'Escape') {
+      formContainer.remove();
+    }
+
+    document.removeEventListener('keydown', removeForm2);
+  }
+
+  function removeForm(e) {
+    formContainer.remove();
+    e.target.removeEventListener('click', removeForm);
+    document.removeEventListener('keydown', removeForm2);
+  }
+
+  closeBtn.addEventListener('click', removeForm);
+  document.addEventListener('keydown', removeForm2);
 }
