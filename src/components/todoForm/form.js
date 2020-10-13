@@ -1,4 +1,7 @@
-export default function () {
+import Todo from '../../utils/todo';
+import renderProject from '../project/project';
+
+export default function(project) {
   const { body } = document;
   const formContainer = document.createElement('div');
   const form = document.createElement('form');
@@ -114,4 +117,19 @@ export default function () {
 
   closeBtn.addEventListener('click', removeForm);
   document.addEventListener('keydown', removeForm2);
+
+  submit.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    const title = titleInput.value;
+    const description = descriptionInput.value;
+    const duedate = duedateInput.value;
+    const priority = priorityInput.value;
+
+    const newTodo = new Todo(title, description, duedate, priority);
+    project.addTodo(newTodo);
+    removeForm(e);
+    renderProject(project);
+
+  })
 }

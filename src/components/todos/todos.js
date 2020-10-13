@@ -21,7 +21,7 @@ export default function todos(tdList) {
   let dateIcon;
   let dateValue;
 
-  tdList.forEach((td) => {
+  tdList.forEach((td, index) => {
     accordion = document.createElement('div');
     card = document.createElement('div');
     cardHeader = document.createElement('div');
@@ -42,8 +42,8 @@ export default function todos(tdList) {
     dateValue = document.createElement('span');
 
     accordion.id = 'accordionExample';
-    cardHeader.id = 'headingOne'; // should be generated
-    collapse.id = 'collapseOne'; // should be generated
+    cardHeader.id = `heading-${index}`; // should be generated
+    collapse.id = `collapse-${index}`; // should be generated
 
     accordion.className = 'accordion pb-2 border-bottom border-grey';
     card.className = 'card border-0';
@@ -65,10 +65,10 @@ export default function todos(tdList) {
     checkbox.setAttribute('name', 'todo-checkbox');
     expandBtn.setAttribute('type', 'button');
     expandBtn.setAttribute('data-toggle', 'collapse');
-    expandBtn.setAttribute('data-target', '#collapseOne'); // value should target collapse ID
+    expandBtn.setAttribute('data-target', `#collapse-${index}`); // value should target collapse ID
     expandBtn.setAttribute('aria-expanded', 'true');
-    expandBtn.setAttribute('aria-controls', 'collapseOne'); // value should target collapse contaier
-    collapse.setAttribute('aria-labelledby', 'headingOne'); // value should target cardheader ID
+    expandBtn.setAttribute('aria-controls', `collapse-${index}`); // value should target collapse contaier
+    collapse.setAttribute('aria-labelledby', `heading-${index}`); // value should target cardheader ID
     collapse.setAttribute('data-parent', '#accordionExample');
 
     // tests

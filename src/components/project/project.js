@@ -59,6 +59,6 @@ export default function (project) {
   todosContainer.appendChild(accordion);
 
   action.addEventListener('click', () => {
-    renderForm();
+    renderForm(project);
   });
 }
