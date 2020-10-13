@@ -50,9 +50,9 @@ export default function(project) {
   duedateInput.setAttribute('name', 'due-date');
   priorityLabel.setAttribute('for', 'priority');
   priorityInput.setAttribute('name', 'priority');
-  priorityHigh.setAttribute('value', 'high');
-  priorityMedium.setAttribute('value', 'medium');
-  priorityLow.setAttribute('value', 'low');
+  priorityHigh.setAttribute('value', '!!! high');
+  priorityMedium.setAttribute('value', '!! medium');
+  priorityLow.setAttribute('value', '! low');
   descriptionLabel.setAttribute('for', 'description');
   descriptionInput.setAttribute('name', 'description');
   descriptionInput.setAttribute('rows', '5');

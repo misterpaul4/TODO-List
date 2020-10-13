@@ -48,14 +48,14 @@ export default function todos(tdList) {
     accordion.className = 'accordion pb-2 border-bottom border-grey';
     card.className = 'card border-0';
     cardHeader.className = 'card-header m-0 p-0 border-0 bg-white';
-    header.className = 'mb-0 d-flex align-items-baseline justify-content-between';
+    header.className = 'mb-0 d-flex align-items-baseline justify-content-between todo-header';
     todoTitle.className = 'due-date font-weight-bold ml-2';
     expandBtn.className = 'btn p-0 m-0 d-flex align-items-baseline';
     barIcon.className = 'more-icon bg-icon';
     collapse.className = 'collapse';
     cardBody.className = 'card-body';
-    todoDescription.className = 'todo-description text-justify';
-    todoExtras.className = 'todo-priority-duedate';
+    todoDescription.className = 'todo-description text-justify border p-3';
+    todoExtras.className = 'todo-priority-duedate mt-3';
     todoPriority.className = 'todo-priority';
     todoDate.className = 'd-flex align-item-center';
     dateIcon.className = 'date-icon bg-icon mr-1';
