@@ -1,4 +1,5 @@
 import './project.scss';
+import todos from '../todos/todos'
 
 export default function (project) {
   const projectContainer = document.getElementById('project-body');
@@ -10,22 +11,7 @@ export default function (project) {
   const projectDescription = document.createElement('div');
   const todosContainer = document.createElement('div');
 
-  // const accordion = document.createElement('div');
-  // const card = document.createElement('div');
-  // const cardHeader = document.createElement('div');
-  // const header = document.createElement('h2');
-  // const seperator = document.createElement('div');
-  // const checkbox = document.createElement('input');
-  // const todoTitle = document.createElement('span');
-  // const expandBtn = document.createElement('button');
-  // const barIcon = document.createElement('span');
-  // // Description collapsable part
-  // const collapse = document.createElement('div');
-  // const cardBody = document.createElement('div');
-  // const todoDescription = document.createElement('div');
-  // const todoExtras = document.createElement('div');
-  // const todoPriority = document.createElement('span');
-  // const todoDate = document.createElement('div');
+  todosContainer.id = 'todos';
 
   projectBody.className = 'project-body';
   projectTitle.className = 'project-title';
@@ -43,5 +29,5 @@ export default function (project) {
   projectBody.appendChild(todosContainer);
   projectContainer.appendChild(projectBody);
 
-  console.log(project);
+  todos(project.todos);
 }

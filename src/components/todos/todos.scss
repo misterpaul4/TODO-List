@@ -1,0 +1,43 @@
+.todos {
+  margin-top: 20px;
+}
+
+button:hover {
+  text-decoration: none !important;
+}
+
+.due-date {
+  font-size: 1rem;
+  margin-right: 0;
+}
+
+.btn.focus,
+.btn:focus {
+  box-shadow: inset 0 -1px 0 #ddd;
+}
+
+.more-icon {
+  background-image: url(./images/more.png);
+}
+
+.date-icon {
+  background-image: url(./images/date.png);
+}
+
+.more-icon,
+.date-icon {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+}
+
+.bg-icon {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.todo-priority-duedate {
+  display: flex;
+  justify-content: space-between;
+}
