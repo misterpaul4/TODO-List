@@ -10,7 +10,8 @@ const defaultProject = new Project(
   'default',
   `Here goes all of your default Todos there is no need to create 
   a new project but if you need some of more organisation you can 
-  do so`, 'red'
+  do so`,
+  'red',
 );
 const grocery = new Project('grocery', 'grocery list', 'green');
 

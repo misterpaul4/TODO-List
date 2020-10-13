@@ -69,3 +69,9 @@
   right: 10px;
   cursor: pointer;
 }
+
+.project-details {
+  padding: 30px;
+  width: calc(100vw - 260px);
+  overflow-y: scroll;
+}

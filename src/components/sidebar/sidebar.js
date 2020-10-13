@@ -13,6 +13,7 @@ export default function render(projects) {
   const project = document.createElement('div');
   const actionPlus = document.createElement('div');
   const projectsContainer = document.createElement('div');
+  const projectDetails = document.createElement('section');
 
   main.className = 'panel';
   nav.className = 'action-panel';
@@ -22,6 +23,8 @@ export default function render(projects) {
   actionPlus.className = 'action-plus bg-icon';
   projectsContainer.className = 'projects';
   projectsContainer.id = 'projects-container';
+  projectDetails.className = 'project-details';
+  projectDetails.id = 'project-body';
 
   project.textContent = 'Projects';
 
@@ -32,6 +35,7 @@ export default function render(projects) {
   nav.appendChild(projectHeader);
   nav.appendChild(projectsContainer);
   main.appendChild(nav);
+  main.appendChild(projectDetails);
   body.appendChild(main);
 
   actionPlus.addEventListener('click', () => {

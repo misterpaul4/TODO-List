@@ -51,13 +51,12 @@ export default function renderForm(projects) {
   colorLabel.setAttribute('for', 'project-color');
   colorInput.setAttribute('type', 'color');
   colorInput.setAttribute('name', 'project-color');
-  // set default color
   colorInput.setAttribute('value', '#ff0017');
 
   titleLabel.textContent = 'Title';
   titleWarning.textContent = 'Project title should atleast have 5 characters';
   descriptionLabel.textContent = 'Description';
-  descriptionWarning.textContent = 'Project Description should atleast have 5 characters';
+  descriptionWarning.textContent = 'Project Description should atleast have 10 characters';
   submitBtn.textContent = 'Submit';
   header.textContent = 'New Project';
   colorLabel.textContent = 'Color: ';
@@ -106,7 +105,7 @@ export default function renderForm(projects) {
     const description = descriptionInput.value;
     const color = colorInput.value;
 
-    if (title.length >= 5 && description.length >= 5) {
+    if (title.length >= 5 && description.length >= 10) {
       const newProject = new Project(title, description, color);
       projects.push(newProject);
       renderProjects(projects);
@@ -123,7 +122,7 @@ export default function renderForm(projects) {
         }, 8000);
       }
 
-      if (description.length < 5) {
+      if (description.length < 10) {
         descriptionWarning.style.display = 'block';
 
         setTimeout(() => {
