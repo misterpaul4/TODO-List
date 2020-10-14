@@ -57,7 +57,7 @@ export default function todos(project) {
     cardHeader.id = `heading-${index}`;
     collapse.id = `collapse-${index}`;
 
-    accordion.className = 'position-relative accordion pb-2 border-bottom border-grey';
+    accordion.className = `position-relative accordion pb-2 ${td.priority} border-grey`;
     removeBtn.className = 'remove-btn';
     card.className = 'card border-0';
     cardHeader.className = 'card-header m-0 p-0 border-0 bg-white';
@@ -69,7 +69,7 @@ export default function todos(project) {
     cardBody.className = 'card-body';
     todoDescription.className = 'todo-description text-justify border p-3';
     todoExtras.className = 'todo-priority-duedate mt-3';
-    todoPriority.className = 'todo-priority';
+    todoPriority.className = `todo-priority ${td.priority}`;
     todoDate.className = 'd-flex align-item-center';
     dateIcon.className = 'date-icon bg-icon mr-1';
     dateValue.className = 'due-date-input';
