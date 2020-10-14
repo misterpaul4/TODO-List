@@ -1,6 +1,8 @@
 import './todos.scss';
 // eslint-disable-next-line import/no-cycle
 import addTask from '../addTask/addTask';
+// eslint-disable-next-line import/no-cycle
+import renderForm from '../todoForm/form';
 
 export default function todos(project) {
   const container = document.getElementById('todos');
@@ -24,6 +26,8 @@ export default function todos(project) {
   let dateIcon;
   let dateValue;
   let removeBtn;
+  let editBtn;
+  let div;
 
   project.todos.forEach((td, index) => {
     accordion = document.createElement('div');
@@ -33,6 +37,7 @@ export default function todos(project) {
     seperator = document.createElement('div');
     checkbox = document.createElement('input');
     todoTitle = document.createElement('span');
+    div = document.createElement('div');
     expandBtn = document.createElement('button');
     barIcon = document.createElement('span');
 
@@ -44,7 +49,9 @@ export default function todos(project) {
     todoDate = document.createElement('div');
     dateIcon = document.createElement('span');
     dateValue = document.createElement('span');
+
     removeBtn = document.createElement('span');
+    editBtn = document.createElement('span');
 
     accordion.id = 'accordionExample';
     cardHeader.id = `heading-${index}`;
@@ -66,6 +73,8 @@ export default function todos(project) {
     todoDate.className = 'd-flex align-item-center';
     dateIcon.className = 'date-icon bg-icon mr-1';
     dateValue.className = 'due-date-input';
+    editBtn.className = 'editBtn bg-icon mr-2';
+    div.className = 'd-flex align-items-center';
 
     checkbox.setAttribute('type', 'checkbox');
     checkbox.setAttribute('name', 'todo-checkbox');
@@ -77,6 +86,7 @@ export default function todos(project) {
     collapse.setAttribute('aria-labelledby', `heading-${index}`); // value should target cardheader ID
     collapse.setAttribute('data-parent', '#accordionExample');
     removeBtn.setAttribute('data-index', index);
+    editBtn.setAttribute('data-index', index);
 
     todoTitle.textContent = td.title;
     todoPriority.textContent = td.priority;
@@ -89,7 +99,9 @@ export default function todos(project) {
     seperator.appendChild(todoTitle);
     header.appendChild(seperator);
     expandBtn.appendChild(barIcon);
-    header.appendChild(expandBtn);
+    div.appendChild(editBtn);
+    div.appendChild(expandBtn);
+    header.appendChild(div);
     cardHeader.appendChild(header);
     card.appendChild(cardHeader);
     collapse.appendChild(cardBody);
@@ -108,6 +120,11 @@ export default function todos(project) {
       project.todos = project.todos.filter((todo, index) => index !== Number(e.target.getAttribute('data-index')));
       todos(project);
       addTask(project);
+    });
+
+    editBtn.addEventListener('click', (e) => {
+      const index = e.target.getAttribute('data-index');
+      renderForm(project, index);
     });
   });
 }

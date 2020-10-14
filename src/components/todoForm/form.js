@@ -3,7 +3,7 @@ import Todo from '../../utils/todo';
 import renderProject from '../project/project';
 import './form.scss';
 
-export default function (project) {
+export default function (project, index = false) {
   const { body } = document;
   const formContainer = document.createElement('div');
   const form = document.createElement('form');
@@ -57,9 +57,9 @@ export default function (project) {
   duedateInput.setAttribute('name', 'due-date');
   priorityLabel.setAttribute('for', 'priority');
   priorityInput.setAttribute('name', 'priority');
-  priorityHigh.setAttribute('value', '!!! high');
-  priorityMedium.setAttribute('value', '!! medium');
-  priorityLow.setAttribute('value', '! low');
+  priorityHigh.setAttribute('value', 'high');
+  priorityMedium.setAttribute('value', 'medium');
+  priorityLow.setAttribute('value', 'low');
   descriptionLabel.setAttribute('for', 'description');
   descriptionInput.setAttribute('name', 'description');
   descriptionInput.setAttribute('rows', '5');
@@ -80,7 +80,7 @@ export default function (project) {
   priorityMedium.textContent = 'Medium';
   priorityLow.textContent = 'Low';
   descriptionLabel.textContent = 'Description';
-  submit.textContent = 'Submit';
+  submit.textContent = index ? 'Edit' : 'Submit';
   titleWarning.textContent = 'title must be greater than 5 characters';
   descriptionWarning.textContent = 'description must be greater than 10 characters';
   duedateWarning.textContent = 'date is required';
@@ -114,6 +114,27 @@ export default function (project) {
   form.appendChild(closeBtn);
   formContainer.appendChild(form);
   body.appendChild(formContainer);
+
+  if (index) {
+    titleInput.value = project.todos[index].title;
+
+    switch (project.todos[index].priority) {
+      case 'high':
+        priorityHigh.setAttribute('selected', 'true');
+        break;
+      case 'medium':
+        priorityMedium.setAttribute('selected', 'true');
+        break;
+      case 'low':
+        priorityLow.setAttribute('selected', 'true');
+        break;
+      default:
+        break;
+    }
+
+    duedateInput.value = project.todos[index].dueDate;
+    descriptionInput.value = project.todos[index].description;
+  }
 
   function removeForm2(e) {
     if (e.key === 'Escape') {
@@ -152,7 +173,11 @@ export default function (project) {
 
     if (title.length >= 5 && description.length >= 10 && duedate !== '') {
       const newTodo = new Todo(title, description, duedate, priority);
-      project.addTodo(newTodo);
+      if (index) {
+        project.todos[index] = newTodo;
+      } else {
+        project.addTodo(newTodo);
+      }
       removeForm(e);
       renderProject(project);
     } else {

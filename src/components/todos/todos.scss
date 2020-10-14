@@ -68,3 +68,11 @@ button:hover {
 .accordion:hover .remove-btn {
   visibility: visible;
 }
+
+.editBtn {
+  background-image: url(./images/edit.png);
+  width: 15px;
+  height: 15px;
+  display: block;
+  cursor: pointer;
+}

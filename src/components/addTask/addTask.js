@@ -11,7 +11,7 @@ export default function (project) {
   const action = document.createElement('div');
   const text = document.createElement('span');
 
-  accordion.className = 'accordion pb-2';
+  accordion.className = 'accordion pointer pb-2';
   card.className = 'card border-0';
   cardHeader.className = 'card-header m-0 p-0 border-0 bg-white';
   header.className = 'mb-0 d-flex align-items-baseline justify-content-between';

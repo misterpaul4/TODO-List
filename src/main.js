@@ -20,7 +20,7 @@ projects.push(defaultProject);
 projects.push(grocery);
 
 // title, description, dueDate, priority, note
-const td1 = new Todo('call nora', 'testing', '24-dec', '!high', 'testing 2');
+const td1 = new Todo('call nora', 'testing', '1993-03-24', 'medium', 'testing 2');
 defaultProject.addTodo(td1);
 
 renderHeader();
