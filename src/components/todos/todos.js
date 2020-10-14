@@ -1,4 +1,5 @@
 import './todos.scss';
+// eslint-disable-next-line import/no-cycle
 import addTask from '../addTask/addTask';
 
 export default function todos(project) {
@@ -46,8 +47,8 @@ export default function todos(project) {
     removeBtn = document.createElement('span');
 
     accordion.id = 'accordionExample';
-    cardHeader.id = `heading-${index}`; // should be generated
-    collapse.id = `collapse-${index}`; // should be generated
+    cardHeader.id = `heading-${index}`;
+    collapse.id = `collapse-${index}`;
 
     accordion.className = 'position-relative accordion pb-2 border-bottom border-grey';
     removeBtn.className = 'remove-btn';
@@ -77,13 +78,12 @@ export default function todos(project) {
     collapse.setAttribute('data-parent', '#accordionExample');
     removeBtn.setAttribute('data-index', index);
 
-    // tests
     todoTitle.textContent = td.title;
     todoPriority.textContent = td.priority;
     dateValue.textContent = td.dueDate;
     todoDescription.textContent = td.description;
     removeBtn.textContent = 'x';
-    // test end
+
     accordion.appendChild(removeBtn);
     seperator.appendChild(checkbox);
     seperator.appendChild(todoTitle);

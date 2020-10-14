@@ -35,7 +35,6 @@ export default function (project) {
   const closeBtn = document.createElement('span');
 
   formContainer.className = 'form-container scroll';
-  form.classList.add('position-relative');
   titleGroup.className = 'form-group';
   titleInput.className = 'form-control';
   duedateGroup.className = 'form-group';
@@ -137,7 +136,6 @@ export default function (project) {
     setTimeout(() => {
       element.style.display = 'none';
       elementInput.classList.remove('is-invalid');
-
     }, 8000);
   }
 
@@ -152,13 +150,13 @@ export default function (project) {
     const duedate = duedateInput.value;
     const priority = priorityInput.value;
 
-    if(title.length >= 5 && description.length >= 10 && duedate !== '' ) {
+    if (title.length >= 5 && description.length >= 10 && duedate !== '') {
       const newTodo = new Todo(title, description, duedate, priority);
       project.addTodo(newTodo);
       removeForm(e);
       renderProject(project);
     } else {
-      if(title.length < 5) {
+      if (title.length < 5) {
         showWarning(titleWarning, titleInput);
       } if (description.length < 10) {
         showWarning(descriptionWarning, descriptionInput);

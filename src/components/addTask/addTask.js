@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-cycle
 import renderForm from '../todoForm/form';
 
 export default function (project) {
@@ -28,7 +29,7 @@ export default function (project) {
   accordion.appendChild(card);
   todosContainer.appendChild(accordion);
 
-  action.addEventListener('click', () => {
+  accordion.addEventListener('click', () => {
     renderForm(project);
   });
 }
