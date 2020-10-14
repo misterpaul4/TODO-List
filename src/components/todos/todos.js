@@ -94,6 +94,8 @@ export default function todos(project) {
     todoDescription.textContent = td.description;
     removeBtn.textContent = 'x';
 
+    checkbox.checked = td.complete;
+
     accordion.appendChild(removeBtn);
     seperator.appendChild(checkbox);
     seperator.appendChild(todoTitle);
@@ -129,6 +131,6 @@ export default function todos(project) {
 
     checkbox.addEventListener('click', () => {
       td.complete = !td.complete;
-    })
+    });
   });
 }
