@@ -3,7 +3,7 @@ import Todo from '../../utils/todo';
 import renderProject from '../project/project';
 import './form.scss';
 
-export default function (project, index = false) {
+export default function renderForm(project, index = false) {
   const { body } = document;
   const formContainer = document.createElement('div');
   const form = document.createElement('form');

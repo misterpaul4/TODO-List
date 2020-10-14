@@ -1,7 +1,7 @@
 // eslint-disable-next-line import/no-cycle
 import renderForm from '../todoForm/form';
 
-export default function (project) {
+export default function renderProject(project) {
   const todosContainer = document.getElementById('todos');
   const accordion = document.createElement('div');
   const card = document.createElement('card');

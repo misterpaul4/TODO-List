@@ -1,9 +1,10 @@
 import './project.scss';
+// eslint-disable-next-line import/no-cycle
 import todos from '../todos/todos';
 // eslint-disable-next-line import/no-cycle
 import addTask from '../addTask/addTask';
 
-export default function (project) {
+export default function renderProject(project) {
   const projectContainer = document.getElementById('project-body');
   projectContainer.innerHTML = '';
 
