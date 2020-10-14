@@ -1,7 +1,9 @@
 import './todos.scss';
+import addTask from '../addTask/addTask';
 
-export default function todos(tdList) {
+export default function todos(project) {
   const container = document.getElementById('todos');
+  container.innerHTML = '';
 
   let accordion;
   let card;
@@ -22,7 +24,7 @@ export default function todos(tdList) {
   let dateValue;
   let removeBtn;
 
-  tdList.forEach((td, index) => {
+  project.todos.forEach((td, index) => {
     accordion = document.createElement('div');
     card = document.createElement('div');
     cardHeader = document.createElement('div');
@@ -73,6 +75,7 @@ export default function todos(tdList) {
     expandBtn.setAttribute('aria-controls', `collapse-${index}`); // value should target collapse contaier
     collapse.setAttribute('aria-labelledby', `heading-${index}`); // value should target cardheader ID
     collapse.setAttribute('data-parent', '#accordionExample');
+    removeBtn.setAttribute('data-index', index);
 
     // tests
     todoTitle.textContent = td.title;
@@ -100,5 +103,11 @@ export default function todos(tdList) {
     accordion.appendChild(card);
 
     container.appendChild(accordion);
+
+    removeBtn.addEventListener('click', (e) => {
+      project.todos = project.todos.filter((todo, index) => index !== Number(e.target.getAttribute('data-index')));
+      todos(project);
+      addTask(project);
+    });
   });
 }
