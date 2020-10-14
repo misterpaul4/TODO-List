@@ -126,5 +126,9 @@ export default function todos(project) {
       const index = e.target.getAttribute('data-index');
       renderForm(project, index);
     });
+
+    checkbox.addEventListener('click', () => {
+      td.complete = !td.complete;
+    })
   });
 }
