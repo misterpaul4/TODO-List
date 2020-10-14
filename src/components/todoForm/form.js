@@ -1,6 +1,7 @@
 import Todo from '../../utils/todo';
 // eslint-disable-next-line import/no-cycle
 import renderProject from '../project/project';
+import './form.scss';
 
 export default function (project) {
   const { body } = document;
@@ -11,10 +12,12 @@ export default function (project) {
   const titleGroup = document.createElement('div');
   const titleLabel = document.createElement('label');
   const titleInput = document.createElement('input');
+  const titleWarning = document.createElement('small');
 
   const duedateGroup = document.createElement('div');
   const duedateLabel = document.createElement('label');
   const duedateInput = document.createElement('input');
+  const duedateWarning = document.createElement('small');
 
   const priorityGroup = document.createElement('div');
   const priorityLabel = document.createElement('label');
@@ -26,11 +29,12 @@ export default function (project) {
   const descriptionGroup = document.createElement('div');
   const descriptionLabel = document.createElement('label');
   const descriptionInput = document.createElement('textarea');
+  const descriptionWarning = document.createElement('small');
 
   const submit = document.createElement('button');
   const closeBtn = document.createElement('span');
 
-  formContainer.className = 'form-container';
+  formContainer.className = 'form-container scroll';
   form.classList.add('position-relative');
   titleGroup.className = 'form-group';
   titleInput.className = 'form-control';
@@ -42,6 +46,9 @@ export default function (project) {
   descriptionInput.className = 'form-control';
   submit.className = 'btn btn-primary';
   closeBtn.className = 'close-btn';
+  titleWarning.className = 'hide form-text text-danger';
+  descriptionWarning.className = 'hide form-text text-danger';
+  duedateWarning.className = 'hide form-text text-danger';
 
   titleLabel.setAttribute('for', 'title');
   titleInput.setAttribute('type', 'text');
@@ -75,15 +82,21 @@ export default function (project) {
   priorityLow.textContent = 'Low';
   descriptionLabel.textContent = 'Description';
   submit.textContent = 'Submit';
+  titleWarning.textContent = 'title must be greater than 5 characters';
+  descriptionWarning.textContent = 'description must be greater than 10 characters';
+  duedateWarning.textContent = 'date is required';
 
   form.appendChild(header);
 
   titleGroup.appendChild(titleLabel);
   titleGroup.appendChild(titleInput);
+  titleGroup.appendChild(titleWarning);
+
   form.appendChild(titleGroup);
 
   duedateGroup.appendChild(duedateLabel);
   duedateGroup.appendChild(duedateInput);
+  duedateGroup.appendChild(duedateWarning);
   form.appendChild(duedateGroup);
 
   priorityGroup.appendChild(priorityLabel);
@@ -95,6 +108,7 @@ export default function (project) {
 
   descriptionGroup.appendChild(descriptionLabel);
   descriptionGroup.appendChild(descriptionInput);
+  descriptionGroup.appendChild(descriptionWarning);
   form.appendChild(descriptionGroup);
 
   form.appendChild(submit);
@@ -116,6 +130,17 @@ export default function (project) {
     document.removeEventListener('keydown', removeForm2);
   }
 
+  function showWarning(element, elementInput) {
+    element.style.display = 'block';
+    elementInput.classList.add('is-invalid');
+
+    setTimeout(() => {
+      element.style.display = 'none';
+      elementInput.classList.remove('is-invalid');
+
+    }, 8000);
+  }
+
   closeBtn.addEventListener('click', removeForm);
   document.addEventListener('keydown', removeForm2);
 
@@ -127,9 +152,19 @@ export default function (project) {
     const duedate = duedateInput.value;
     const priority = priorityInput.value;
 
-    const newTodo = new Todo(title, description, duedate, priority);
-    project.addTodo(newTodo);
-    removeForm(e);
-    renderProject(project);
+    if(title.length >= 5 && description.length >= 10 && duedate !== '' ) {
+      const newTodo = new Todo(title, description, duedate, priority);
+      project.addTodo(newTodo);
+      removeForm(e);
+      renderProject(project);
+    } else {
+      if(title.length < 5) {
+        showWarning(titleWarning, titleInput);
+      } if (description.length < 10) {
+        showWarning(descriptionWarning, descriptionInput);
+      } if (duedate === '') {
+        showWarning(duedateWarning, duedateInput);
+      }
+    }
   });
 }
