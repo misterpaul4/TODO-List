@@ -76,9 +76,8 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Todo List',
-      favicon: './favicon.ico',
     }),
-    new FaviconsWebpackPlugin('./favicon.ico'),
+    new FaviconsWebpackPlugin('./favicon.png'),
     new CleanWebpackPlugin({
       cleanStaleWebpackAssets: false,
     }),
