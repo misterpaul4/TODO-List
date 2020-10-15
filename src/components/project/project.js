@@ -4,7 +4,7 @@ import todos from '../todos/todos';
 // eslint-disable-next-line import/no-cycle
 import addTask from '../addTask/addTask';
 
-export default function renderProject(project) {
+export default function renderProject(project, index) {
   const projectContainer = document.getElementById('project-body');
   projectContainer.innerHTML = '';
 
@@ -22,6 +22,8 @@ export default function renderProject(project) {
   projectCircle.style.backgroundColor = project.color;
   projectDescription.className = 'project-description';
   todosContainer.className = 'todos';
+
+  todosContainer.setAttribute('data-project-index', index);
 
   projectTitle.appendChild(projectCircle);
   projectTitle.innerHTML += ` ${project.title}`;

@@ -1,7 +1,9 @@
 import './projects.scss';
+// eslint-disable-next-line import/no-cycle
 import renderProject from '../project/project';
 
-export default function renderProjects(projects) {
+export default function renderProjects(project = false, projectIndex = 0) {
+  const projects = JSON.parse(localStorage.getItem('projects'));
   const container = document.getElementById('projects-container');
 
   container.innerHTML = '';
@@ -33,8 +35,12 @@ export default function renderProjects(projects) {
     container.appendChild(projectContainer);
 
     trashIcon.addEventListener('click', () => {
-      projects = projects.slice(0, index).concat(projects.slice(index + 1));
-      renderProjects(projects);
+      localStorage.setItem(
+        'projects',
+        JSON.stringify(projects.slice(0, index).concat(projects.slice(index + 1))),
+      );
+
+      renderProjects();
     });
 
     projectTitle.addEventListener('click', (e) => {
@@ -44,7 +50,11 @@ export default function renderProjects(projects) {
       }
 
       e.target.classList.add('selected');
-      renderProject(project);
+      renderProject(project, index);
     });
   });
+
+  if (projects.length > 0) {
+    renderProject(project || projects[0], projectIndex);
+  }
 }

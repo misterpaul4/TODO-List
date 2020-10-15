@@ -3,7 +3,7 @@ import './sidebar.scss';
 import renderProjects from '../projects/projects';
 import renderForm from '../projectForm/form';
 
-export default function render(projects) {
+export default function render() {
   const { body } = document;
   const main = document.createElement('main');
   const nav = document.createElement('nav');
@@ -39,8 +39,8 @@ export default function render(projects) {
   body.appendChild(main);
 
   actionPlus.addEventListener('click', () => {
-    renderForm(projects);
+    renderForm();
   });
 
-  renderProjects(projects);
+  renderProjects();
 }

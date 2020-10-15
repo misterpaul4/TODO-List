@@ -1,6 +1,6 @@
 import Todo from '../../utils/todo';
 // eslint-disable-next-line import/no-cycle
-import renderProject from '../project/project';
+import renderProjects from '../projects/projects';
 import './form.scss';
 
 export default function renderForm(project, index = false) {
@@ -172,14 +172,25 @@ export default function renderForm(project, index = false) {
     const priority = priorityInput.value;
 
     if (title.length >= 5 && description.length >= 10 && duedate !== '') {
+      const container = document.getElementById('todos');
+      const projectIndex = Number(container.getAttribute('data-project-index'));
+
       const newTodo = new Todo(title, description, duedate, priority);
+
       if (index) {
         project.todos[index] = newTodo;
       } else {
-        project.addTodo(newTodo);
+        project.todos.push(newTodo);
       }
+
+      const projects = JSON.parse(localStorage.getItem('projects'));
+      projects[projectIndex] = project;
+
+      localStorage.setItem('projects', JSON.stringify(projects));
+
       removeForm(e);
-      renderProject(project);
+
+      renderProjects(projects[projectIndex], projectIndex);
     } else {
       if (title.length < 5) {
         showWarning(titleWarning, titleInput);

@@ -1,12 +1,15 @@
 import './todos.scss';
 // eslint-disable-next-line import/no-cycle
-import addTask from '../addTask/addTask';
-// eslint-disable-next-line import/no-cycle
 import renderForm from '../todoForm/form';
+// eslint-disable-next-line import/no-cycle
+import renderProjects from '../projects/projects';
 
 export default function todos(project) {
   const container = document.getElementById('todos');
   container.innerHTML = '';
+
+  const projects = JSON.parse(localStorage.getItem('projects'));
+  const projectIndex = Number(document.getElementById('todos').getAttribute('data-project-index'));
 
   let accordion;
   let card;
@@ -119,9 +122,13 @@ export default function todos(project) {
     container.appendChild(accordion);
 
     removeBtn.addEventListener('click', (e) => {
-      project.todos = project.todos.filter((todo, index) => index !== Number(e.target.getAttribute('data-index')));
-      todos(project);
-      addTask(project);
+      projects[projectIndex].todos = project.todos.filter(
+        (todo, index) => index !== Number(e.target.getAttribute('data-index')),
+      );
+
+      localStorage.setItem('projects', JSON.stringify(projects));
+
+      renderProjects(projects[projectIndex], projectIndex);
     });
 
     editBtn.addEventListener('click', (e) => {
@@ -131,6 +138,10 @@ export default function todos(project) {
 
     checkbox.addEventListener('click', () => {
       td.complete = !td.complete;
+
+      projects[projectIndex].todos[index].complete = td.complete;
+
+      localStorage.setItem('projects', JSON.stringify(projects));
     });
   });
 }

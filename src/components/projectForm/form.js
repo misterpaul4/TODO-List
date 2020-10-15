@@ -1,7 +1,7 @@
 import renderProjects from '../projects/projects';
 import Project from '../../utils/project';
 
-export default function renderForm(projects) {
+export default function renderForm() {
   const formContainer = document.createElement('div');
   const form = document.createElement('form');
   const header = document.createElement('h2');
@@ -106,13 +106,16 @@ export default function renderForm(projects) {
     const color = colorInput.value;
 
     if (title.length >= 5 && description.length >= 10) {
+      const projects = JSON.parse(localStorage.getItem('projects'));
+
       const newProject = new Project(title, description, color);
       projects.push(newProject);
-      renderProjects(projects);
+
+      localStorage.setItem('projects', JSON.stringify(projects));
 
       removeForm(e);
 
-      renderProjects(projects);
+      renderProjects();
     } else {
       if (title.length < 5) {
         titleWarning.style.display = 'block';
