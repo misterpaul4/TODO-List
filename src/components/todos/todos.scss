@@ -1,0 +1,90 @@
+.todos {
+  margin-top: 20px;
+}
+
+button:hover {
+  text-decoration: none !important;
+}
+
+.due-date {
+  font-size: 1rem;
+  margin-right: 0;
+}
+
+.btn.focus,
+.btn:focus {
+  box-shadow: inset 0 -1px 0 #ddd;
+}
+
+.more-icon {
+  background-image: url(./images/more.png);
+}
+
+.date-icon {
+  background-image: url(./images/date.png);
+}
+
+.more-icon,
+.date-icon {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+}
+
+.bg-icon {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.todo-priority-duedate {
+  display: flex;
+  justify-content: space-between;
+}
+
+.accordion .remove-btn {
+  visibility: hidden;
+  position: absolute;
+  top: 18px;
+  left: -20px;
+  color: white;
+  background: red;
+  border-radius: 100%;
+  width: 13px;
+  height: 13px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 10px;
+  cursor: pointer;
+  transition: visibility 0.2s ease-in;
+}
+
+.accordion .remove-btn:hover {
+  visibility: visible;
+}
+
+.accordion:hover .remove-btn {
+  visibility: visible;
+}
+
+.editBtn {
+  background-image: url(./images/edit.png);
+  width: 15px;
+  height: 15px;
+  display: block;
+  cursor: pointer;
+}
+
+.high {
+  border-bottom: 2px solid #860004;
+}
+
+.medium {
+  border-bottom: 2px solid #ff0004;
+}
+
+.low {
+  border-bottom: 2px solid #ff9191;
+}
